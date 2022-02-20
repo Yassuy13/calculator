@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 {
   const num_bth = document.querySelectorAll('.num_bth');
   let output_sub = document.getElementById('output_sub');
@@ -19,10 +19,10 @@
           total += index.dataset.indexId;
         }
         output_sub.textContent = total;
-        state = 'calculation'
-        changeOutput()
-      })
-    })
+        state = 'calculation';
+        changeOutput();
+      });
+    });
 
   const zero = document.getElementById('zero');
   zero.addEventListener('click', () => {
@@ -38,12 +38,12 @@
       total += zero.dataset.indexId;
     }
     output_sub.textContent = total;
-    changeOutput()
-  })
+    changeOutput();
+  });
 
   const point = document.getElementById('point');
   point.addEventListener('click', () => {
-    console.log(point.dataset.indexId)
+    console.log(point.dataset.indexId);
     if(mode === 'decimal_mode'){
       return;
        }
@@ -56,10 +56,10 @@
     }
     total += point.dataset.indexId;
     output_sub.textContent = total;
-    state = 'calculation'
+    state = 'calculation';
     mode = 'decimal_mode';
-    changeOutput()
-  })
+    changeOutput();
+  });
 
   const cal = document.querySelectorAll('.cal');
   cal.forEach(index => {
@@ -71,39 +71,39 @@
       }else if(state === 'finish'){
         total = output_total.textContent;
         total += index.dataset.indexId;
-        output_total.textContent = 0
+        output_total.textContent = 0;
       }else if(state ==='calBtn') {
-        total = total.slice(0, -1)
+        total = total.slice(0, -1);
         total += index.dataset.indexId;
       }
       output_sub.textContent = total;
-      state = 'calBtn'
-      mode ='integer_mode'
-      changeOutput()
-    })
-  })
+      state = 'calBtn';
+      mode ='integer_mode';
+      changeOutput();
+    });
+  });
 
   const equal_btn = document.getElementById('equal_btn');
   equal_btn.addEventListener('click',() =>{
     console.log(eval(total));
     output_total.textContent = digitNum(eval(total));
-    state = 'finish'
-    mode ='integer_mode'
-    changeOutput()
+    state = 'finish';
+    mode ='integer_mode';
+    changeOutput();
   });
 
-  const clear = document.getElementById('clear')
+  const clear = document.getElementById('clear');
   clear.addEventListener('click', () => {
     reset();
-  })
+  });
   
   function reset() {
     total = 0;
     output_sub.textContent = 0;
     output_total.textContent = 0;
-    mode ='integer_mode'
+    mode ='integer_mode';
     state ='start';
-    changeOutput()
+    changeOutput();
   }
   
   function digitNum(num) {
