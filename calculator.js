@@ -28,7 +28,7 @@
   zero.addEventListener('click', () => {
   if(state==='start'||state==='finish'||state==='calBtn'){
       if(output_sub.textContent.slice(-1) === '0') {
-        console.log('前の文字はゼロ');
+        console.log('0');
         return;
       }
     }
